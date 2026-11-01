@@ -1,0 +1,1722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apply as Talent — Worven</title>
+<meta name="description" content="You are talented. The problem is no platform is paying you for it. Worven changes that. Human-vetted. No bidding. Earn what your work is worth.">
+<meta property="og:title" content="Apply as Talent — Worven">
+<meta property="og:description" content="Earn 3–5× more. No bidding. Paid ₹1,500 for your test project. Your score is yours forever.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+
+/* =============================================
+   WORVEN talent.html — Part 3A
+   Tokens + Base + Nav + Hero + Section base
+   Same brand, new emotional architecture.
+============================================= */
+
+:root {
+  --ink:    #0C0B0F;
+  --ink2:   #16141C;
+  --ink3:   #1E1B26;
+  --ink4:   #262230;
+  --smoke:  #2E2A3A;
+  --smoke2: #3D3850;
+  --fog:    #6B6580;
+  --mist:   #9993A8;
+  --silver: #C8C3D8;
+  --pearl:  #EDE9F7;
+  --w:          #8BFFC0;
+  --w-dim:      rgba(139,255,192,0.07);
+  --w-border:   rgba(139,255,192,0.18);
+  --w-glow:     rgba(139,255,192,0.11);
+  --amber:      #FFB86C;
+  --amber-dim:  rgba(255,184,108,0.08);
+  --amber-bdr:  rgba(255,184,108,0.2);
+  --red:        #F87171;
+  --red-dim:    rgba(248,113,113,0.08);
+  --red-bdr:    rgba(248,113,113,0.22);
+  --serif: 'DM Serif Display', Georgia, serif;
+  --sans:  'DM Sans', system-ui, sans-serif;
+  --r:  8px; --r2: 14px; --r3: 22px; --r4: 32px; --pill: 999px;
+}
+
+/* ── RESET ── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--sans);background:var(--ink);color:var(--silver);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+a{color:inherit;text-decoration:none;}
+button{cursor:pointer;font-family:inherit;border:none;background:none;}
+ul{list-style:none;}
+::selection{background:rgba(139,255,192,0.2);color:var(--pearl);}
+::-webkit-scrollbar{width:4px;}
+::-webkit-scrollbar-track{background:var(--ink);}
+::-webkit-scrollbar-thumb{background:var(--smoke2);border-radius:2px;}
+
+/* ── LAYOUT ── */
+.wrap   {max-width:1100px;margin:0 auto;padding:0 24px;}
+.wrap-sm{max-width:680px; margin:0 auto;padding:0 24px;}
+.wrap-xs{max-width:520px; margin:0 auto;padding:0 24px;}
+
+/* ── TYPE ── */
+.display{
+  font-family:var(--serif);
+  font-size:clamp(36px,7vw,78px);
+  line-height:1.06; letter-spacing:-0.025em;
+  color:var(--pearl); font-weight:400;
+}
+.display em{font-style:italic;color:var(--w);}
+.heading{
+  font-family:var(--serif);
+  font-size:clamp(24px,4vw,44px);
+  line-height:1.12; letter-spacing:-0.02em;
+  color:var(--pearl); font-weight:400;
+}
+.heading em{font-style:italic;color:var(--w);}
+.sub{font-size:clamp(14px,1.8vw,17px);color:var(--mist);line-height:1.8;font-weight:300;}
+.lbl{font-size:11px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--fog);}
+
+/* ── BUTTONS ── */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:6px;
+  font-family:var(--sans);font-weight:500;padding:12px 26px;
+  border-radius:var(--r);border:1px solid transparent;
+  transition:all .22s ease;white-space:nowrap;line-height:1;cursor:pointer;
+}
+.btn:active{transform:scale(.97);}
+.btn-lg{font-size:15px;padding:14px 32px;border-radius:var(--r2);}
+.btn-sm{font-size:12px;padding:8px 16px;}
+.btn-mint{
+  background:var(--w);color:var(--ink);
+  border-color:var(--w);font-weight:600;font-size:14px;
+}
+.btn-mint:hover{
+  background:#A8FFCF;transform:translateY(-2px);
+  box-shadow:0 10px 30px rgba(139,255,192,.22);
+}
+.btn-ghost{
+  background:transparent;color:var(--silver);
+  border-color:var(--smoke2);font-size:14px;
+}
+.btn-ghost:hover{background:var(--ink3);border-color:var(--fog);transform:translateY(-2px);}
+
+/* ── CHIP ── */
+.chip{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:11px;font-weight:500;letter-spacing:.04em;
+  padding:5px 12px;border-radius:var(--pill);
+  border:1px solid var(--smoke2);color:var(--fog);
+}
+.chip-mint{border-color:var(--w-border);background:var(--w-dim);color:var(--w);}
+.chip-amber{border-color:var(--amber-bdr);background:var(--amber-dim);color:var(--amber);}
+.dot{
+  width:6px;height:6px;border-radius:50%;
+  background:var(--w);
+  animation:breathe 2.4s ease-in-out infinite;
+}
+@keyframes breathe{
+  0%,100%{opacity:1;transform:scale(1);}
+  50%{opacity:.3;transform:scale(.7);}
+}
+
+/* ── BADGE ── */
+.badge{
+  display:inline-flex;align-items:center;gap:4px;
+  font-size:10px;font-weight:500;padding:3px 8px;
+  border-radius:var(--pill);
+  background:var(--w-dim);color:var(--w);
+  border:1px solid var(--w-border);
+}
+
+/* ── NAV ── */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:999;
+  height:62px;
+  background:rgba(12,11,15,.88);
+  backdrop-filter:blur(28px) saturate(160%);
+  -webkit-backdrop-filter:blur(28px) saturate(160%);
+  border-bottom:1px solid transparent;
+  transition:border-color .3s;
+}
+.nav.scrolled{border-color:var(--smoke);}
+.nav-in{
+  max-width:1100px;margin:0 auto;padding:0 24px;
+  height:100%;display:flex;align-items:center;justify-content:space-between;
+}
+.wordmark{font-family:var(--serif);font-size:22px;color:var(--pearl);letter-spacing:-.03em;}
+.wdot{color:var(--w);}
+.nav-links{display:flex;gap:32px;}
+.nav-a{font-size:13px;color:var(--fog);transition:color .2s;}
+.nav-a:hover,.nav-a.active{color:var(--pearl);}
+.nav-right{display:flex;gap:10px;align-items:center;}
+.burger{
+  display:none;width:36px;height:36px;
+  flex-direction:column;align-items:center;justify-content:center;gap:5px;
+}
+.burger span{
+  display:block;width:18px;height:1.5px;
+  background:var(--silver);
+  transition:transform .25s,opacity .2s;
+}
+.burger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg);}
+.burger.open span:nth-child(2){opacity:0;}
+.burger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
+.mob-nav{
+  position:fixed;inset:0;top:62px;z-index:998;
+  background:rgba(12,11,15,.98);
+  padding:32px 24px;
+  display:flex;flex-direction:column;gap:2px;
+  transform:translateX(100%);
+  transition:transform .3s ease;
+}
+.mob-nav.open{transform:none;}
+.mn-a{
+  font-family:var(--serif);font-size:28px;color:var(--mist);
+  padding:14px 0;border-bottom:1px solid var(--smoke);
+  transition:color .2s;display:block;
+}
+.mn-a:hover{color:var(--pearl);}
+
+/* ── HERO ── */
+.hero{
+  min-height:100vh;display:flex;align-items:center;
+  padding:9rem 0 6rem;position:relative;overflow:hidden;
+}
+/* Asymmetric glows — OPPOSITE side to index.html for variety */
+.hero-bg{position:absolute;inset:0;pointer-events:none;}
+.hero-bg::before{
+  content:'';position:absolute;
+  top:-180px;right:-100px;
+  width:720px;height:720px;
+  background:radial-gradient(ellipse,rgba(139,255,192,.06) 0%,transparent 65%);
+}
+.hero-bg::after{
+  content:'';position:absolute;
+  bottom:-100px;left:-60px;
+  width:480px;height:480px;
+  background:radial-gradient(ellipse,rgba(255,184,108,.045) 0%,transparent 65%);
+}
+.hero-dots{
+  position:absolute;inset:0;pointer-events:none;
+  background-image:radial-gradient(circle,rgba(110,103,138,.2) 1px,transparent 1px);
+  background-size:40px 40px;
+  mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 10%,transparent 100%);
+}
+.hero-body{position:relative;z-index:2;width:100%;}
+.hero-kicker{margin-bottom:28px;display:flex;gap:10px;flex-wrap:wrap;}
+.hero-h1{margin-bottom:24px;}
+.hero-sub{max-width:560px;margin-bottom:32px;}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:18px;}
+
+/* Paid note under CTA */
+.paid-note{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:12px;color:var(--fog);margin-bottom:56px;
+}
+.pn-tick{
+  width:16px;height:16px;border-radius:50%;
+  background:var(--amber-dim);border:1px solid var(--amber-bdr);
+  display:flex;align-items:center;justify-content:center;
+  font-size:9px;color:var(--amber);flex-shrink:0;
+}
+
+/* Reality metrics — before/after grid */
+.reality-bar{
+  display:grid;grid-template-columns:1fr 40px 1fr;
+  border:1px solid var(--smoke);border-radius:var(--r2);
+  overflow:hidden;background:var(--smoke);gap:1px;
+}
+.rb-cell{background:var(--ink2);padding:20px 16px;text-align:center;transition:background .2s;}
+.rb-cell:hover{background:var(--ink3);}
+.rb-arrow{
+  background:var(--ink2);display:flex;
+  align-items:center;justify-content:center;
+  color:var(--smoke2);font-size:18px;
+}
+.rb-platform{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px;}
+.rb-platform.old{color:rgba(248,113,113,.55);}
+.rb-platform.new{color:var(--w);}
+.rb-num{font-family:var(--serif);font-size:26px;line-height:1;margin-bottom:4px;}
+.rb-num.bad{color:var(--red);}
+.rb-num.good{color:var(--w);}
+.rb-label{font-size:11px;color:var(--fog);line-height:1.4;}
+
+/* ── SECTION BASE ── */
+.section{padding:92px 0;border-top:1px solid var(--smoke);}
+.s-center{text-align:center;margin-bottom:52px;}
+.s-center .sub{max-width:480px;margin:14px auto 0;}
+.s-2col{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:64px;align-items:end;margin-bottom:52px;
+}
+
+/* ── VILLAIN WALL ── */
+.villain-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:1px;background:var(--smoke);
+  border:1px solid var(--smoke);border-radius:var(--r3);
+  overflow:hidden;margin-bottom:18px;
+}
+.vc{background:var(--ink2);padding:30px;transition:background .22s;position:relative;}
+.vc::before{
+  content:'';position:absolute;left:0;top:0;bottom:0;
+  width:2px;
+  background:linear-gradient(180deg,rgba(248,113,113,.55),rgba(248,113,113,.08));
+}
+.vc:hover{background:var(--ink3);}
+.vc-who{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(248,113,113,.55);margin-bottom:8px;}
+.vc-title{font-family:var(--serif);font-size:16px;color:var(--pearl);line-height:1.3;margin-bottom:16px;}
+.vc-items{display:flex;flex-direction:column;gap:8px;}
+.vc-item{display:flex;gap:8px;font-size:13px;color:var(--fog);line-height:1.5;}
+.vc-item::before{content:'↳';color:var(--smoke2);flex-shrink:0;}
+.villain-exit{
+  display:flex;align-items:center;gap:14px;
+  padding:16px 22px;
+  background:linear-gradient(135deg,var(--w-dim),transparent);
+  border:1px solid var(--w-border);border-radius:var(--r2);
+}
+.ve-dot{width:8px;height:8px;border-radius:50%;background:var(--w);flex-shrink:0;}
+.ve-text{font-size:15px;font-weight:500;color:var(--w);}
+
+/* ── INCOME CALCULATOR ── */
+.calc-wrap{
+  background:var(--ink2);border:1px solid var(--smoke);
+  border-radius:var(--r3);overflow:hidden;
+}
+.calc-top{padding:30px 30px 26px;border-bottom:1px solid var(--smoke);}
+.calc-controls{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:22px;}
+.cc-group{display:flex;flex-direction:column;gap:8px;}
+.cc-lbl{font-size:11px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;color:var(--fog);}
+.cc-select{
+  background:var(--ink3);border:1px solid var(--smoke);
+  border-radius:var(--r);padding:11px 14px;
+  font-family:var(--sans);font-size:14px;color:var(--silver);
+  width:100%;appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236B6580' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 14px center;
+  padding-right:40px;cursor:pointer;
+  transition:border-color .2s;
+}
+.cc-select:focus{outline:none;border-color:var(--w);}
+option{background:var(--ink2);}
+.slider-wrap{display:flex;flex-direction:column;gap:8px;}
+.slider-top{display:flex;justify-content:space-between;align-items:center;}
+.slider-val{font-family:var(--serif);font-size:22px;color:var(--pearl);}
+.slider-unit{font-size:12px;color:var(--fog);}
+input[type=range]{
+  -webkit-appearance:none;appearance:none;
+  width:100%;height:3px;background:var(--smoke);
+  border-radius:2px;outline:none;cursor:pointer;
+}
+input[type=range]::-webkit-slider-thumb{
+  -webkit-appearance:none;width:18px;height:18px;
+  border-radius:50%;background:var(--w);cursor:pointer;
+  transition:transform .15s;
+}
+input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.25);}
+input[type=range]::-moz-range-thumb{
+  width:18px;height:18px;border-radius:50%;
+  background:var(--w);cursor:pointer;border:none;
+}
+.calc-result{padding:26px 30px;background:linear-gradient(135deg,rgba(139,255,192,.04),transparent);}
+.calc-compare{display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:center;margin-bottom:18px;}
+.calc-col{text-align:center;}
+.calc-platform{font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px;}
+.calc-platform.old{color:rgba(248,113,113,.55);}
+.calc-platform.new{color:var(--w);}
+.calc-amount{font-family:var(--serif);font-size:clamp(26px,4vw,40px);line-height:1;margin-bottom:4px;transition:all .35s ease;}
+.calc-amount.old{color:var(--red);}
+.calc-amount.new{color:var(--w);}
+.calc-period{font-size:11px;color:var(--fog);}
+.calc-vs{font-size:12px;color:var(--smoke2);text-align:center;}
+.calc-diff{
+  text-align:center;padding:14px;
+  background:var(--ink3);border-radius:var(--r2);
+  border:1px solid var(--smoke);
+}
+.cd-label{font-size:12px;color:var(--fog);margin-bottom:4px;}
+.cd-num{font-family:var(--serif);font-size:24px;color:var(--amber);line-height:1;}
+.calc-disclaimer{
+  font-size:12px;color:var(--fog);text-align:center;
+  line-height:1.6;margin-top:14px;padding-top:14px;
+  border-top:1px solid var(--smoke);
+}
+
+/* ── PROCESS STEPS ── */
+.psteps{display:flex;flex-direction:column;}
+.pstep{display:grid;grid-template-columns:56px 1fr;position:relative;}
+.pstep:not(:last-child)::after{
+  content:'';position:absolute;
+  left:27px;top:54px;bottom:0;
+  width:1px;
+  background:linear-gradient(180deg,var(--smoke2),var(--smoke),transparent);
+}
+.pstep-left{display:flex;flex-direction:column;align-items:center;padding-top:2px;}
+.pstep-circle{
+  width:40px;height:40px;border-radius:50%;
+  border:1px solid var(--smoke2);background:var(--ink2);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--serif);font-size:15px;color:var(--fog);
+  transition:all .25s;flex-shrink:0;position:relative;z-index:1;
+}
+.pstep:hover .pstep-circle{
+  border-color:var(--w-border);background:var(--w-dim);color:var(--w);
+}
+.pstep-body{padding:0 0 34px 22px;}
+.pstep-title{font-family:var(--serif);font-size:19px;color:var(--pearl);margin-bottom:6px;line-height:1.2;}
+.pstep-desc{font-size:13px;color:var(--fog);line-height:1.7;margin-bottom:10px;}
+.pstep-tags{display:flex;gap:7px;flex-wrap:wrap;}
+.ptag{display:inline-flex;align-items:center;gap:4px;font-size:11px;padding:3px 9px;border-radius:var(--pill);}
+.ptag-time{border:1px solid var(--smoke2);color:var(--fog);}
+.ptag-good{border:1px solid var(--w-border);background:var(--w-dim);color:var(--w);}
+.ptag-amber{border:1px solid var(--amber-bdr);background:var(--amber-dim);color:var(--amber);}
+
+/* ── SCORE SHOWCASE ── */
+.score-split{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center;}
+.score-card{
+  background:var(--ink2);border:1px solid var(--smoke);
+  border-radius:var(--r3);padding:28px;
+  position:relative;transition:border-color .22s;
+}
+.score-card:hover{border-color:var(--w-border);}
+.sc-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:26px;}
+.sc-name{font-family:var(--serif);font-size:17px;color:var(--pearl);margin-bottom:2px;}
+.sc-sub{font-size:11px;color:var(--fog);}
+.sc-big{font-family:var(--serif);font-size:44px;color:var(--w);line-height:1;}
+.sc-biglbl{font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--fog);text-align:right;margin-top:2px;}
+.sdim{margin-bottom:14px;}
+.sdim-row{display:flex;justify-content:space-between;margin-bottom:6px;}
+.sdim-lbl{font-size:12px;color:var(--mist);}
+.sdim-val{font-size:12px;font-weight:500;color:var(--silver);}
+.sdim-bar{height:2px;background:var(--smoke);border-radius:1px;overflow:hidden;}
+.sdim-fill{
+  height:100%;border-radius:1px;width:0%;
+  background:linear-gradient(90deg,var(--w),rgba(139,255,192,.4));
+  transition:width 1.8s cubic-bezier(.4,0,.2,1);
+}
+.sc-foot{margin-top:18px;padding-top:16px;border-top:1px solid var(--smoke);display:flex;justify-content:space-between;align-items:center;}
+.sc-proj{font-size:11px;color:var(--fog);}
+/* Story card floating */
+.sc-story{
+  position:absolute;bottom:-18px;right:-18px;
+  background:var(--ink3);border:1px solid var(--smoke2);
+  border-radius:var(--r2);padding:14px 16px;
+  max-width:190px;
+  box-shadow:0 8px 28px rgba(0,0,0,.45);
+}
+.sc-story-name{font-size:12px;font-weight:500;color:var(--pearl);margin-bottom:2px;}
+.sc-story-text{font-size:11px;color:var(--fog);line-height:1.5;}
+.sc-story-num{font-family:var(--serif);font-size:18px;color:var(--amber);margin-top:5px;}
+.score-pills{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;}
+.score-pill{font-size:11px;font-weight:500;padding:4px 11px;border-radius:var(--pill);border:1px solid var(--smoke2);color:var(--fog);}
+
+/* ── FACES / TALENT STORIES ── */
+.faces-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(256px,1fr));gap:16px;}
+.fcard{
+  background:var(--ink2);border:1px solid var(--smoke);
+  border-radius:var(--r3);overflow:hidden;
+  transition:border-color .22s,transform .3s cubic-bezier(.34,1.56,.64,1);
+}
+.fcard:hover{border-color:var(--smoke2);transform:translateY(-5px);}
+.fc-band{height:3px;}
+.band-mint  {background:linear-gradient(90deg,var(--w),transparent);}
+.band-amber {background:linear-gradient(90deg,var(--amber),transparent);}
+.band-purple{background:linear-gradient(90deg,#C4B5FD,transparent);}
+.band-sky   {background:linear-gradient(90deg,#7DD3FC,transparent);}
+.fc-in{padding:22px;}
+.fc-av{
+  width:46px;height:46px;border-radius:var(--r2);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--serif);font-size:15px;margin-bottom:12px;
+}
+.av-mint  {background:rgba(139,255,192,.09);border:1px solid var(--w-border);color:var(--w);}
+.av-amber {background:rgba(255,184,108,.09);border:1px solid var(--amber-bdr);color:var(--amber);}
+.av-purple{background:rgba(196,181,253,.09);border:1px solid rgba(196,181,253,.2);color:#c4b5fd;}
+.av-sky   {background:rgba(125,211,252,.09);border:1px solid rgba(125,211,252,.2);color:#7dd3fc;}
+.fc-name{font-family:var(--serif);font-size:16px;color:var(--pearl);margin-bottom:2px;}
+.fc-role{font-size:12px;color:var(--fog);margin-bottom:6px;}
+.fc-city{font-size:11px;color:var(--smoke2);margin-bottom:14px;}
+.fc-quote{
+  font-family:var(--serif);font-size:13px;font-style:italic;
+  color:var(--mist);line-height:1.65;
+  margin-bottom:16px;padding-left:10px;
+  border-left:2px solid var(--smoke2);
+}
+.fc-earn{
+  display:flex;align-items:center;gap:10px;
+  padding:12px 0;border-top:1px solid var(--smoke);
+}
+.fc-earn-col{text-align:center;flex:1;}
+.fc-earn-lbl{font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--fog);margin-bottom:4px;}
+.fc-earn-num{font-family:var(--serif);font-size:19px;line-height:1;}
+.fc-earn-num.before{color:var(--red);}
+.fc-earn-num.after{color:var(--w);}
+.fc-earn-arrow{color:var(--smoke2);font-size:16px;}
+
+/* ── STANDARDS ── */
+.standards-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:1px;background:var(--smoke);
+  border:1px solid var(--smoke);border-radius:var(--r3);overflow:hidden;
+}
+.std-col{background:var(--ink2);padding:32px;}
+.std-col-head{display:flex;align-items:center;gap:10px;margin-bottom:22px;}
+.std-icon{
+  width:32px;height:32px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:14px;flex-shrink:0;
+}
+.std-icon.yes{background:var(--w-dim);border:1px solid var(--w-border);}
+.std-icon.no {background:var(--red-dim);border:1px solid var(--red-bdr);}
+.std-col-title{font-family:var(--serif);font-size:17px;color:var(--pearl);}
+.std-items{display:flex;flex-direction:column;gap:13px;}
+.std-item{display:flex;gap:10px;align-items:flex-start;}
+.std-check{
+  width:20px;height:20px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:10px;flex-shrink:0;margin-top:1px;
+}
+.std-check.yes{background:var(--w-dim);color:var(--w);border:1px solid var(--w-border);}
+.std-check.no {background:var(--red-dim);color:var(--red);border:1px solid var(--red-bdr);}
+.std-text{font-size:13px;color:var(--fog);line-height:1.55;}
+.std-text strong{color:var(--silver);font-weight:500;}
+
+/* ── APPLY FORM ── */
+.form-panel{
+  background:var(--ink2);border:1px solid var(--smoke);
+  border-radius:var(--r3);overflow:hidden;
+}
+.form-top{
+  padding:24px 36px;border-bottom:1px solid var(--smoke);
+  background:linear-gradient(135deg,rgba(139,255,192,.04),transparent);
+  position:relative;
+}
+.form-top::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--w),transparent);
+}
+.form-top-title{font-family:var(--serif);font-size:20px;color:var(--pearl);margin-bottom:4px;}
+.form-top-sub{font-size:13px;color:var(--fog);}
+.form-body{padding:36px;display:flex;flex-direction:column;gap:20px;}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.fg{display:flex;flex-direction:column;gap:7px;}
+.fl{font-size:11px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--fog);}
+.fi{
+  background:var(--ink3);border:1px solid var(--smoke);
+  border-radius:var(--r);padding:11px 14px;
+  font-family:var(--sans);font-size:14px;color:var(--silver);
+  width:100%;transition:border-color .2s,box-shadow .2s;appearance:none;
+}
+.fi::placeholder{color:var(--smoke2);}
+.fi:focus{outline:none;border-color:var(--w);box-shadow:0 0 0 3px rgba(139,255,192,.1);}
+.fi.err{border-color:var(--red);}
+.fi.ok{border-color:var(--w);}
+textarea.fi{resize:vertical;min-height:110px;}
+select.fi{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236B6580' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 14px center;
+  padding-right:40px;cursor:pointer;
+}
+.f-note{font-size:12px;color:var(--fog);text-align:center;line-height:1.6;}
+
+/* Success state */
+.apply-success{display:none;text-align:center;padding:72px 32px;}
+.apply-success.show{display:block;}
+.as-glow{
+  width:80px;height:80px;border-radius:50%;
+  background:var(--w-dim);border:1px solid var(--w-border);
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 24px;font-size:34px;
+}
+.as-title{font-family:var(--serif);font-size:clamp(22px,4vw,34px);color:var(--pearl);margin-bottom:12px;letter-spacing:-.5px;}
+.as-sub{font-size:16px;color:var(--mist);max-width:440px;margin:0 auto 24px;line-height:1.75;}
+.as-timer{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:11px 20px;border:1px solid var(--smoke2);
+  border-radius:var(--r2);font-size:13px;color:var(--fog);margin-bottom:28px;
+}
+.as-timer-dot{width:8px;height:8px;border-radius:50%;background:var(--amber);animation:breathe 1.5s ease-in-out infinite;}
+.as-items{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;}
+.as-item{display:flex;align-items:center;gap:7px;font-size:13px;color:var(--mist);}
+.as-check{
+  width:20px;height:20px;border-radius:50%;
+  background:var(--w-dim);border:1px solid var(--w-border);
+  display:flex;align-items:center;justify-content:center;
+  font-size:10px;color:var(--w);flex-shrink:0;
+}
+
+/* ── FINAL CTA ── */
+.final-cta{padding:96px 0;text-align:center;position:relative;overflow:hidden;}
+.final-cta::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 600px 380px at 50% 100%,var(--w-glow) 0%,transparent 70%);
+  pointer-events:none;
+}
+.final-in{position:relative;z-index:1;}
+.cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:36px;}
+
+/* ── FOOTER ── */
+.footer{padding:52px 0 32px;border-top:1px solid var(--smoke);}
+.footer-top{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:40px;margin-bottom:44px;}
+.f-wm{font-family:var(--serif);font-size:22px;color:var(--pearl);margin-bottom:6px;}
+.f-tag{font-size:13px;color:var(--fog);}
+.footer-cols{display:flex;gap:52px;flex-wrap:wrap;}
+.fcol-h{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--fog);margin-bottom:14px;}
+.fcol-a{display:block;font-size:13px;color:var(--smoke2);margin-bottom:10px;transition:color .2s;}
+.fcol-a:hover{color:var(--silver);}
+.footer-bot{padding-top:24px;border-top:1px solid var(--smoke);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+.f-copy,.f-built{font-size:12px;color:var(--fog);}
+.f-built span{color:var(--w);}
+
+/* ── REVEAL ── */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease;}
+.reveal.d1{transition-delay:.1s;}
+.reveal.d2{transition-delay:.2s;}
+.reveal.d3{transition-delay:.3s;}
+.reveal.visible{opacity:1;transform:none;}
+
+/* ── RESPONSIVE ── */
+@media(max-width:960px){
+  .score-split{grid-template-columns:1fr;}
+  .sc-story{display:none;}
+  .s-2col{grid-template-columns:1fr;}
+  .standards-grid{grid-template-columns:1fr;}
+}
+@media(max-width:768px){
+  .nav-links,.nav-right .btn-ghost{display:none;}
+  .burger{display:flex;}
+  .hero{padding:7rem 0 4rem;}
+  .reality-bar{grid-template-columns:1fr;}
+  .rb-arrow{transform:rotate(90deg);}
+  .villain-grid{grid-template-columns:1fr;}
+  .calc-controls{grid-template-columns:1fr;}
+  .f-row{grid-template-columns:1fr;}
+  .footer-top{flex-direction:column;}
+  .footer-bot{flex-direction:column;text-align:center;}
+  .section{padding:64px 0;}
+  .form-body{padding:24px;}
+  .form-top{padding:20px 24px;}
+}
+@media(max-width:480px){
+  .hero-actions{flex-direction:column;align-items:flex-start;}
+  .calc-compare{grid-template-columns:1fr;}
+  .calc-vs{display:none;}
+  .as-items{flex-direction:column;align-items:center;}
+  .cta-btns{flex-direction:column;align-items:center;}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════ NAV ═══════════ -->
+<nav class="nav" id="nav">
+  <div class="nav-in">
+    <a href="/" class="wordmark">Worv<span class="wdot">en</span></a>
+    <div class="nav-links">
+      <a href="/#how"     class="nav-a">How it works</a>
+      <a href="/#compare" class="nav-a">Compare</a>
+      <a href="/#score"   class="nav-a">Score</a>
+      <a href="/#hire"    class="nav-a">Hire talent</a>
+    </div>
+    <div class="nav-right">
+      <a href="/#hire"  class="btn btn-ghost btn-sm">Hire talent</a>
+      <a href="#apply"  class="btn btn-mint btn-sm">Apply now &rarr;</a>
+    </div>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE NAV -->
+<div class="mob-nav" id="mobNav">
+  <a href="/#how"    class="mn-a">How it works</a>
+  <a href="/#score"  class="mn-a">Score</a>
+  <a href="/#hire"   class="mn-a">Hire talent</a>
+  <a href="#apply"   class="mn-a">Apply as talent</a>
+  <div style="margin-top:28px;display:flex;flex-direction:column;gap:10px;">
+    <a href="#apply" class="btn btn-mint btn-lg">Apply now &rarr;</a>
+    <a href="/"      class="btn btn-ghost btn-lg">Back to home</a>
+  </div>
+</div>
+
+<!-- ═══════════ HERO — THE MIRROR ═══════════ -->
+<section class="hero" aria-labelledby="hero-h">
+  <div class="hero-bg"   aria-hidden="true"></div>
+  <div class="hero-dots" aria-hidden="true"></div>
+  <div class="wrap hero-body">
+
+    <div class="hero-kicker">
+      <span class="chip chip-mint">
+        <span class="dot"></span>Applications open &middot; 2025
+      </span>
+      <span class="chip chip-amber">&#8377;1,500 paid test project</span>
+    </div>
+
+    <h1 class="display hero-h1" id="hero-h">
+      You are talented.<br>
+      The world just hasn&rsquo;t<br>
+      <em>paid you for it yet.</em>
+    </h1>
+
+    <p class="sub hero-sub" style="font-size:18px;">
+      You have been underpaid on Fiverr. Ignored on Upwork.
+      Capped by the city you were born in. Worven was built
+      for exactly one person &mdash; the talented creative professional
+      who deserves a global income and has never had access to one.
+    </p>
+
+    <div class="hero-actions">
+      <a href="#apply"      class="btn btn-mint btn-lg">Apply in 10 minutes &rarr;</a>
+      <a href="#calculator" class="btn btn-ghost btn-lg">See your income</a>
+    </div>
+
+    <div class="paid-note">
+      <div class="pn-tick">&#8377;</div>
+      <span>You get paid &#8377;1,500 for the test project &mdash;
+      even if we do not accept you. Your time is valuable to us.</span>
+    </div>
+
+    <!-- Before / After Reality Bar -->
+    <div class="reality-bar" role="list">
+      <div class="rb-cell" role="listitem">
+        <div class="rb-platform old">Average on Fiverr</div>
+        <div class="rb-num bad">&#8377;14,000</div>
+        <div class="rb-label">per month<br>brand identity design</div>
+      </div>
+      <div class="rb-arrow" aria-hidden="true">&rarr;</div>
+      <div class="rb-cell" role="listitem">
+        <div class="rb-platform new">Worven verified</div>
+        <div class="rb-num good">&#8377;82,000</div>
+        <div class="rb-label">per month<br>same skill, global clients</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════ VILLAIN WALL ═══════════ -->
+<section class="section" id="problem" aria-labelledby="prob-h">
+  <div class="wrap">
+
+    <div class="s-center reveal">
+      <p class="lbl" style="margin-bottom:10px;">Why you are here</p>
+      <h2 class="heading" id="prob-h">
+        Every platform you tried<br>was designed to use you.
+      </h2>
+      <p class="sub">
+        Not your fault. The model was broken from the start.
+        Understanding why is the first step to escaping it.
+      </p>
+    </div>
+
+    <div class="villain-grid reveal">
+
+      <div class="vc">
+        <p class="vc-who">The Fiverr trap</p>
+        <p class="vc-title">They built a race to the bottom and called it a marketplace</p>
+        <div class="vc-items">
+          <div class="vc-item">Your $5 gig tells every client you are worth $5</div>
+          <div class="vc-item">200 people undercutting you on every single listing</div>
+          <div class="vc-item">Platform takes 20% &mdash; you keep $4 of every $5</div>
+          <div class="vc-item">No relationship. No growth. No dignity.</div>
+        </div>
+      </div>
+
+      <div class="vc">
+        <p class="vc-who">The Upwork lottery</p>
+        <p class="vc-title">Spend your evening writing proposals that nobody reads</p>
+        <div class="vc-items">
+          <div class="vc-item">40 proposals sent &mdash; 1 reply if you are lucky</div>
+          <div class="vc-item">Competing against someone charging $3/hr from overseas</div>
+          <div class="vc-item">No human ever vetted whether you are actually good</div>
+          <div class="vc-item">Your reputation disappears if you leave the platform</div>
+        </div>
+      </div>
+
+      <div class="vc">
+        <p class="vc-who">The city ceiling</p>
+        <p class="vc-title">Born in Nagpur or Coimbatore? The global market ignores you.</p>
+        <div class="vc-items">
+          <div class="vc-item">Local clients pay local prices &mdash; always</div>
+          <div class="vc-item">No way to prove your quality to global buyers</div>
+          <div class="vc-item">No credential that a London founder would trust</div>
+          <div class="vc-item">Geography determines income. Until now.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="villain-exit reveal">
+      <div class="ve-dot"></div>
+      <p class="ve-text">
+        Worven does not fix the platforms. It replaces them entirely &mdash;
+        with a model built around trust, verification, and your rate, not theirs.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════ INCOME CALCULATOR ═══════════ -->
+<section class="section" id="calculator" aria-labelledby="calc-h">
+  <div class="wrap">
+
+    <div class="s-center reveal">
+      <p class="lbl" style="margin-bottom:10px;">Your income potential</p>
+      <h2 class="heading" id="calc-h">
+        See your actual number.<br>
+        <em>Right now.</em>
+      </h2>
+      <p class="sub">
+        No other talent platform shows you this.
+        Move the slider. See what your skill is worth
+        when geography stops being a handicap.
+      </p>
+    </div>
+
+    <div class="calc-wrap reveal">
+
+      <!-- Controls -->
+      <div class="calc-top">
+        <div class="calc-controls">
+          <div class="cc-group">
+            <label class="cc-lbl" for="skillSelect">Your primary skill</label>
+            <select class="cc-select" id="skillSelect">
+              <option value="brand">Brand identity design</option>
+              <option value="social">Social media design</option>
+              <option value="logo">Logo design</option>
+              <option value="motion">Motion graphics / video</option>
+              <option value="uiux">UI/UX design</option>
+              <option value="illustration">Illustration</option>
+              <option value="copy">Content writing / copywriting</option>
+            </select>
+          </div>
+          <div class="cc-group">
+            <div class="slider-wrap">
+              <div class="slider-top">
+                <label class="cc-lbl" for="hoursSlider">Hours per week</label>
+                <div>
+                  <span class="slider-val" id="hoursVal">20</span>
+                  <span class="slider-unit"> hrs</span>
+                </div>
+              </div>
+              <input
+                type="range" id="hoursSlider"
+                min="5" max="40" value="20" step="5"
+                aria-label="Hours per week"
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Result -->
+      <div class="calc-result">
+        <div class="calc-compare">
+          <div class="calc-col">
+            <div class="calc-platform old">Fiverr average</div>
+            <div class="calc-amount old" id="fiverAmount">&#8377;14,000</div>
+            <div class="calc-period">per month</div>
+          </div>
+          <div class="calc-vs">&rarr;</div>
+          <div class="calc-col">
+            <div class="calc-platform new">Worven verified</div>
+            <div class="calc-amount new" id="worvenAmount">&#8377;82,000</div>
+            <div class="calc-period">per month</div>
+          </div>
+        </div>
+        <div class="calc-diff">
+          <div class="cd-label">You earn extra every month</div>
+          <div class="cd-num" id="diffAmount">&#8377;68,000 more</div>
+        </div>
+        <p class="calc-disclaimer">
+          Based on verified Worven professional data. Your rate is set by you.
+          Results depend on hours, skill, and client fit &mdash; but the floor
+          is always higher than where most talented people in India are today.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════ PROCESS ═══════════ -->
+<section class="section" id="process" aria-labelledby="process-h">
+  <div class="wrap">
+
+    <div class="s-2col reveal">
+      <div>
+        <p class="lbl" style="margin-bottom:10px;">The process</p>
+        <h2 class="heading" id="process-h">
+          Exactly what happens<br>after you apply.<br>
+          <em>No mystery.</em>
+        </h2>
+      </div>
+      <p class="sub" style="padding-bottom:6px;">
+        The biggest reason talented people do not apply to anything is
+        the fear of the unknown. So we remove it completely.
+        Here is every step &mdash; including what happens if we say no.
+      </p>
+    </div>
+
+    <div class="psteps reveal">
+
+      <div class="pstep">
+        <div class="pstep-left">
+          <div class="pstep-circle">01</div>
+        </div>
+        <div class="pstep-body">
+          <p class="pstep-title">You apply &mdash; 10 minutes, one honest form</p>
+          <p class="pstep-desc">
+            Tell us about your work, your city, your rate, and one thing you
+            are genuinely proud of creating. Not a CV. Not a cover letter.
+            A real conversation starter. We read every single word personally.
+          </p>
+          <div class="pstep-tags">
+            <span class="ptag ptag-time">&#8776; 10 minutes</span>
+            <span class="ptag ptag-good">No CV required</span>
+            <span class="ptag ptag-good">No degree needed</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pstep">
+        <div class="pstep-left">
+          <div class="pstep-circle">02</div>
+        </div>
+        <div class="pstep-body">
+          <p class="pstep-title">A human reviews your portfolio &mdash; within 7 days</p>
+          <p class="pstep-desc">
+            Not a bot. Not a keyword filter. A real person from the Worven
+            team looks at your portfolio against our quality standard.
+            We check for genuine creative thinking, not just technical ability.
+          </p>
+          <div class="pstep-tags">
+            <span class="ptag ptag-time">Within 7 days</span>
+            <span class="ptag ptag-good">Human review only</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pstep">
+        <div class="pstep-left">
+          <div class="pstep-circle">03</div>
+        </div>
+        <div class="pstep-body">
+          <p class="pstep-title">You receive a paid test project &mdash; &#8377;1,500, yours to keep</p>
+          <p class="pstep-desc">
+            If your portfolio passes, we send you a real brief &mdash; a small,
+            genuine creative project with a real deadline. You complete it
+            to your own standard. No tricks. No traps. You get paid
+            &#8377;1,500 the moment you submit it, regardless of the outcome.
+          </p>
+          <div class="pstep-tags">
+            <span class="ptag ptag-time">3&ndash;5 days to complete</span>
+            <span class="ptag ptag-amber">&#8377;1,500 paid on submission</span>
+            <span class="ptag ptag-good">Yours to keep either way</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pstep">
+        <div class="pstep-left">
+          <div class="pstep-circle">04</div>
+        </div>
+        <div class="pstep-body">
+          <p class="pstep-title">Decision &mdash; with written feedback either way</p>
+          <p class="pstep-desc">
+            We review your test project and make a decision within 3 days.
+            If you are accepted &mdash; welcome. Your Worven Score is created
+            and your first client match begins. If not &mdash; you receive
+            specific, written, actionable feedback on exactly what to improve
+            and when to reapply. No generic rejection email. A real career
+            conversation.
+          </p>
+          <div class="pstep-tags">
+            <span class="ptag ptag-time">Within 3 days</span>
+            <span class="ptag ptag-good">Written feedback always</span>
+            <span class="ptag ptag-amber">Reapply in 90 days</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pstep">
+        <div class="pstep-left">
+          <div class="pstep-circle">05</div>
+        </div>
+        <div class="pstep-body">
+          <p class="pstep-title">Work comes to you &mdash; you never bid again</p>
+          <p class="pstep-desc">
+            Set your rate. Set your availability. When a client brief matches
+            your profile, we bring it to you directly. You review the brief,
+            confirm the fit, and work begins. Payment arrives in your account
+            within 48 hours of client approval &mdash; clean, in INR, predictable.
+          </p>
+          <div class="pstep-tags">
+            <span class="ptag ptag-good">No bidding. Ever.</span>
+            <span class="ptag ptag-amber">Paid within 48 hours</span>
+            <span class="ptag ptag-good">You set your rate</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════ SCORE SHOWCASE ═══════════ -->
+<section class="section" id="score" aria-labelledby="score-h">
+  <div class="wrap">
+
+    <div class="s-center reveal">
+      <p class="lbl" style="margin-bottom:10px;">The Worven Score</p>
+      <h2 class="heading" id="score-h">
+        A credential that belongs<br>to <em>you.</em> Not the platform.
+      </h2>
+      <p class="sub">
+        Every other platform locks your reputation inside their walls.
+        Leave Upwork &mdash; your reviews disappear. Leave Fiverr &mdash;
+        you start from zero. Your Worven Score is yours permanently.
+        Take it everywhere.
+      </p>
+    </div>
+
+    <div class="score-split">
+
+      <div style="position:relative;" class="reveal">
+        <div class="score-card" id="scoreCard">
+          <div class="sc-head">
+            <div>
+              <div class="sc-name">Priya R.</div>
+              <div class="sc-sub">Brand identity &middot; Bhubaneswar</div>
+            </div>
+            <div style="text-align:right;">
+              <div class="sc-big">96</div>
+              <div class="sc-biglbl">Worven Score</div>
+            </div>
+          </div>
+          <div class="sdim">
+            <div class="sdim-row"><span class="sdim-lbl">Quality of work</span><span class="sdim-val">98/100</span></div>
+            <div class="sdim-bar"><div class="sdim-fill" data-w="98%"></div></div>
+          </div>
+          <div class="sdim">
+            <div class="sdim-row"><span class="sdim-lbl">Reliability</span><span class="sdim-val">96/100</span></div>
+            <div class="sdim-bar"><div class="sdim-fill" data-w="96%"></div></div>
+          </div>
+          <div class="sdim">
+            <div class="sdim-row"><span class="sdim-lbl">Communication</span><span class="sdim-val">94/100</span></div>
+            <div class="sdim-bar"><div class="sdim-fill" data-w="94%"></div></div>
+          </div>
+          <div class="sdim">
+            <div class="sdim-row"><span class="sdim-lbl">Consistency</span><span class="sdim-val">97/100</span></div>
+            <div class="sdim-bar"><div class="sdim-fill" data-w="97%"></div></div>
+          </div>
+          <div class="sdim">
+            <div class="sdim-row"><span class="sdim-lbl">Global client fit</span><span class="sdim-val">95/100</span></div>
+            <div class="sdim-bar"><div class="sdim-fill" data-w="95%"></div></div>
+          </div>
+          <div class="sc-foot">
+            <span class="badge">&#10003; Worven verified</span>
+            <span class="sc-proj">34 completed projects</span>
+          </div>
+        </div>
+        <!-- Floating proof card -->
+        <div class="sc-story">
+          <div class="sc-story-name">Priya&rsquo;s score got her this</div>
+          <div class="sc-story-text">London founder found her LinkedIn score. Direct message. No proposal.</div>
+          <div class="sc-story-num">&#8377;4.2L project</div>
+        </div>
+      </div>
+
+      <div class="reveal d2">
+        <p class="lbl" style="margin-bottom:12px;">What the score means</p>
+        <h3 class="heading" style="font-size:clamp(22px,3.5vw,36px);margin-bottom:14px;">
+          Verified by outcomes.<br>Trusted <em>globally.</em>
+        </h3>
+        <p class="sub" style="margin-bottom:12px;">
+          Your score is built from real client outcomes &mdash; not
+          self-reported. Quality, reliability, communication, consistency,
+          global fit. Five dimensions that tell a client in New York or
+          Berlin exactly who they are hiring.
+        </p>
+        <p class="sub" style="font-size:14px;margin-bottom:22px;">
+          It travels with you. Share it on LinkedIn. Put it in your
+          proposals. Link it in your email signature. It is the most
+          valuable professional credential available to South Asian
+          creative talent today.
+        </p>
+        <div class="score-pills">
+          <span class="score-pill">Portable forever</span>
+          <span class="score-pill">Verified by clients</span>
+          <span class="score-pill">Shareable anywhere</span>
+          <span class="score-pill">Yours on exit</span>
+        </div>
+        <a href="#apply" class="btn btn-mint" style="margin-top:4px;">
+          Get your score &rarr;
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ REAL FACES ═══════════ -->
+<section class="section" id="stories" aria-labelledby="faces-h">
+  <div class="wrap">
+
+    <div class="s-center reveal">
+      <p class="lbl" style="margin-bottom:10px;">Real people. Real cities.</p>
+      <h2 class="heading" id="faces-h">
+        These are not success stories.<br>
+        <em>This is the standard.</em>
+      </h2>
+      <p class="sub">
+        Every person below was doing the same work for a fraction of
+        the income before Worven. Same skill. Same effort.
+        Different platform. Different outcome.
+      </p>
+    </div>
+
+    <div class="faces-grid reveal">
+
+      <div class="fcard">
+        <div class="fc-band band-mint"></div>
+        <div class="fc-in">
+          <div class="fc-av av-mint">PR</div>
+          <p class="fc-name">Priya R.</p>
+          <p class="fc-role">Brand identity designer</p>
+          <p class="fc-city">&#128205; Bhubaneswar, Odisha</p>
+          <p class="fc-quote">&ldquo;I was embarrassed to tell people what I charged. Now I send invoices without flinching.&rdquo;</p>
+          <div class="fc-earn">
+            <div class="fc-earn-col">
+              <div class="fc-earn-lbl">Before</div>
+              <div class="fc-earn-num before">&#8377;12K</div>
+            </div>
+            <div class="fc-earn-arrow">&rarr;</div>
+            <div class="fc-earn-col">
+              <div class="fc-earn-lbl">Worven</div>
+              <div class="fc-earn-num after">&#8377;85K</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="fcard">
+        <div class="fc-band band-amber"></div>
+        <div class="fc-in">
+          <div class="fc-av av-amber">AK</div>
+          <p class="fc-name">Arjun K.</p>
+          <p class="fc-role">Motion &amp; social media design</p>
+          <p class="fc-city">&#128205; Coimbatore, Tamil Nadu</p>
+          <p class="fc-quote">&ldquo;I used to spend Sunday evenings writing proposals. Now I spend them with my family.&rdquo;</p>
+          <div class="fc-earn">
+            <div class="fc-earn-col">
+              <div class="fc-earn-lbl">Before</div>
+              <div class="fc-earn-num before">&#8377;18K</div>
+            </div>
+            <div class="fc-earn-arrow">&rarr;</div>
+            <div class="fc-earn-col">
+              <div class="fc-earn-lbl">Worven</div>
+              <div class="fc-earn-num after">&#8377;76K</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="fcard">
+        <div class="fc-band band-purple"></div>
+        <div class="fc-in">
+          <div class="fc-av av-purple">SM</div>
+          <p class="fc-name">Shreya M.</p>
+          <p class="fc-role">Logo &amp; visual identity</p>
+          <p class="fc-city">&#128205; Nagpur, Maharashtra</p>
+          <p class="fc-quote">&ldquo;A client in Berlin told me my score was why he chose me over someone local. That changed everything.&rdquo;</p>
+          <div class="fc-earn">
+            <div class="fc-earn-col">
+              <div class="fc-earn-lbl">Before</div>
+              <div class="fc-earn-num before">&#8377;9K</div>
+            </div>
+            <div class="fc-earn-arrow">&rarr;</div>
+            <div class="fc-earn-col">
+              <div class="fc-earn-lbl">Worven</div>
+              <div class="fc-earn-num after">&#8377;92K</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="fcard">
+        <div class="fc-band band-sky"></div>
+        <div class="fc-in">
+          <div class="fc-av av-sky">RD</div>
+          <p class="fc-name">Rahul D.</p>
+          <p class="fc-role">UI/UX &amp; product design</p>
+          <p class="fc-city">&#128205; Indore, Madhya Pradesh</p>
+          <p class="fc-quote">&ldquo;I stopped explaining where Indore is. My work speaks first. The score explains the rest.&rdquo;</p>
+          <div class="fc-earn">
+            <div class="fc-earn-col">
+              <div class="fc-earn-lbl">Before</div>
+              <div class="fc-earn-num before">&#8377;22K</div>
+            </div>
+            <div class="fc-earn-arrow">&rarr;</div>
+            <div class="fc-earn-col">
+              <div class="fc-earn-lbl">Worven</div>
+              <div class="fc-earn-num after">&#8377;98K</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="text-align:center;margin-top:36px;" class="reveal">
+      <p style="font-size:13px;color:var(--fog);line-height:1.7;max-width:480px;margin:0 auto 20px;">
+        These are real outcomes from real Worven professionals.
+        Results vary based on skill, hours, and client fit.
+        But the floor is always higher than where talented
+        people in India are right now.
+      </p>
+      <a href="#apply" class="btn btn-ghost">Apply and join them &rarr;</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════ STANDARDS ═══════════ -->
+<section class="section" id="standards" aria-labelledby="std-h">
+  <div class="wrap">
+
+    <div class="s-center reveal">
+      <p class="lbl" style="margin-bottom:10px;">Who we accept</p>
+      <h2 class="heading" id="std-h">
+        What we look for.<br>
+        What we <em>do not</em> care about.
+      </h2>
+      <p class="sub">
+        Most platforms never tell you why you were rejected.
+        We tell you everything upfront &mdash; so you know
+        exactly whether to apply today.
+      </p>
+    </div>
+
+    <div class="standards-grid reveal">
+
+      <div class="std-col">
+        <div class="std-col-head">
+          <div class="std-icon yes">&#10003;</div>
+          <p class="std-col-title">What we look for</p>
+        </div>
+        <div class="std-items">
+          <div class="std-item">
+            <div class="std-check yes">&#10003;</div>
+            <p class="std-text"><strong>Genuine creative thinking.</strong> Work that solves a real problem visually &mdash; not just technical execution of a brief.</p>
+          </div>
+          <div class="std-item">
+            <div class="std-check yes">&#10003;</div>
+            <p class="std-text"><strong>Professional communication.</strong> You write clearly in English. You respond within 24 hours. You say what you mean.</p>
+          </div>
+          <div class="std-item">
+            <div class="std-check yes">&#10003;</div>
+            <p class="std-text"><strong>Reliability.</strong> You deliver what you promise, when you promise it. Consistently. Not just when you feel like it.</p>
+          </div>
+          <div class="std-item">
+            <div class="std-check yes">&#10003;</div>
+            <p class="std-text"><strong>A portfolio with at least 3 real projects.</strong> Work you actually did for actual people, with actual outcomes.</p>
+          </div>
+          <div class="std-item">
+            <div class="std-check yes">&#10003;</div>
+            <p class="std-text"><strong>Honesty about your level.</strong> We prefer someone who knows what they are and owns it over someone who oversells.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="std-col">
+        <div class="std-col-head">
+          <div class="std-icon no">&times;</div>
+          <p class="std-col-title">What we do not care about</p>
+        </div>
+        <div class="std-items">
+          <div class="std-item">
+            <div class="std-check no">&times;</div>
+            <p class="std-text"><strong>Your degree.</strong> We have never once asked. We will never ask. A certificate from a design school means nothing without real work.</p>
+          </div>
+          <div class="std-item">
+            <div class="std-check no">&times;</div>
+            <p class="std-text"><strong>Your city.</strong> Bhubaneswar, Patna, Surat, anywhere. Geography is exactly what we are fighting against.</p>
+          </div>
+          <div class="std-item">
+            <div class="std-check no">&times;</div>
+            <p class="std-text"><strong>Your equipment.</strong> Laptop, phone, shared computer. If the work is good, the tool does not matter.</p>
+          </div>
+          <div class="std-item">
+            <div class="std-check no">&times;</div>
+            <p class="std-text"><strong>Your social media following.</strong> Zero followers, zero problem. We are not a platform for influencers.</p>
+          </div>
+          <div class="std-item">
+            <div class="std-check no">&times;</div>
+            <p class="std-text"><strong>Your years of experience.</strong> We have accepted 1-year designers over 8-year designers. The work decides. Nothing else.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ APPLY FORM ═══════════ -->
+<section class="section" id="apply" aria-labelledby="apply-h">
+  <div class="wrap-sm">
+
+    <div class="s-center reveal">
+      <p class="lbl" style="margin-bottom:10px;">Apply now</p>
+      <h2 class="heading" id="apply-h">
+        Ten minutes.<br>
+        One honest form.<br>
+        <em>Your whole career changes.</em>
+      </h2>
+      <p class="sub" style="max-width:400px;margin:14px auto 0;">
+        We read every application personally.
+        Not a bot. Not a filter. A human who wants to find great people.
+      </p>
+    </div>
+
+    <div class="form-panel reveal">
+      <div class="form-top">
+        <p class="form-top-title">Your application to Worven</p>
+        <p class="form-top-sub">Every field matters. The more honest you are, the better we can place you.</p>
+      </div>
+
+      <form class="form-body" id="talentForm" novalidate>
+
+        <div class="f-row">
+          <div class="fg">
+            <label class="fl" for="tname">Full name</label>
+            <input class="fi" type="text" id="tname" name="name"
+              placeholder="Your full name" required autocomplete="name">
+          </div>
+          <div class="fg">
+            <label class="fl" for="temail">Email</label>
+            <input class="fi" type="email" id="temail" name="email"
+              placeholder="your@email.com" required autocomplete="email">
+          </div>
+        </div>
+
+        <div class="f-row">
+          <div class="fg">
+            <label class="fl" for="tcity">City</label>
+            <input class="fi" type="text" id="tcity" name="city"
+              placeholder="e.g. Bhubaneswar" required>
+          </div>
+          <div class="fg">
+            <label class="fl" for="tskill">Primary skill</label>
+            <select class="fi" id="tskill" name="skill" required>
+              <option value="" disabled selected>Select your speciality</option>
+              <option>Brand identity design</option>
+              <option>Social media design</option>
+              <option>Logo design</option>
+              <option>Motion graphics / video editing</option>
+              <option>UI/UX design</option>
+              <option>Illustration</option>
+              <option>Content writing</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="fg">
+          <label class="fl" for="tportfolio">Portfolio URL</label>
+          <input class="fi" type="url" id="tportfolio" name="portfolio"
+            placeholder="https://behance.net/yourname" required>
+        </div>
+
+        <div class="f-row">
+          <div class="fg">
+            <label class="fl" for="texp">Years of experience</label>
+            <select class="fi" id="texp" name="experience" required>
+              <option value="" disabled selected>Select</option>
+              <option>Less than 1 year</option>
+              <option>1&ndash;2 years</option>
+              <option>3&ndash;5 years</option>
+              <option>5+ years</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label class="fl" for="trate">Target rate (USD / hr)</label>
+            <select class="fi" id="trate" name="rate" required>
+              <option value="" disabled selected>Select</option>
+              <option>$20&ndash;30/hr</option>
+              <option>$30&ndash;50/hr</option>
+              <option>$50&ndash;80/hr</option>
+              <option>$80+/hr</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="fg">
+          <label class="fl" for="tproud">
+            What is the last piece of work you are genuinely proud of &mdash; and why?
+          </label>
+          <textarea class="fi" id="tproud" name="proud" rows="4"
+            placeholder="Tell us about one real project. What was the problem? What did you create? Why does it matter to you? We read every word."
+            required></textarea>
+        </div>
+
+        <div class="fg">
+          <label class="fl" for="twhy">Why Worven? Why now?</label>
+          <textarea class="fi" id="twhy" name="why" rows="3"
+            placeholder="What brought you here today? What are you trying to change about how your work is valued?"
+            required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-mint btn-lg" style="width:100%;">
+          Submit application &rarr;
+        </button>
+
+        <p class="f-note">
+          You will hear back within 7 days. If accepted, your paid
+          &#8377;1,500 test project brief arrives the same day.
+          If not, you receive written feedback &mdash; specific and useful.
+        </p>
+
+      </form>
+
+      <!-- SUCCESS STATE -->
+      <div class="apply-success" id="applySuccess">
+        <div class="as-glow">&#10003;</div>
+        <h2 class="as-title">You applied.<br>Now we go to work.</h2>
+        <p class="as-sub">
+          A real person from Worven will read your application personally
+          and respond within 7 days. Watch your inbox.
+        </p>
+        <div class="as-timer">
+          <div class="as-timer-dot"></div>
+          <span>Review window: 7 days from now</span>
+        </div>
+        <div class="as-items">
+          <div class="as-item">
+            <div class="as-check">&#10003;</div>
+            Application received
+          </div>
+          <div class="as-item">
+            <div class="as-check">&#10003;</div>
+            Human review begins
+          </div>
+          <div class="as-item">
+            <div class="as-check">&#10003;</div>
+            Response within 7 days
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FINAL CTA ═══════════ -->
+<section class="final-cta">
+  <div class="wrap">
+    <div class="final-in reveal">
+      <p class="display">
+        The world needs your work.<br>
+        It just needs to <em>find you.</em>
+      </p>
+      <p class="sub" style="max-width:440px;margin:18px auto 0;font-size:17px;">
+        Apply today. Get paid for the test project.
+        Earn what your work is actually worth &mdash;
+        from clients who understand the value of quality.
+      </p>
+      <div class="cta-btns">
+        <a href="#apply"  class="btn btn-mint btn-lg">Apply now &rarr;</a>
+        <a href="/"       class="btn btn-ghost btn-lg">Back to Worven</a>
+        <a href="mailto:hello@worven.io" class="btn btn-ghost btn-lg">hello@worven.io</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <div class="f-wm">Worv<span style="color:var(--w)">en</span></div>
+        <p class="f-tag">The trust layer for global creative hiring.</p>
+      </div>
+      <div class="footer-cols">
+        <div>
+          <p class="fcol-h">For talent</p>
+          <a href="#process"   class="fcol-a">How it works</a>
+          <a href="#calculator" class="fcol-a">Income calculator</a>
+          <a href="#score"     class="fcol-a">Worven Score</a>
+          <a href="#standards" class="fcol-a">Standards</a>
+          <a href="#apply"     class="fcol-a">Apply now</a>
+        </div>
+        <div>
+          <p class="fcol-h">For clients</p>
+          <a href="/#how"     class="fcol-a">How it works</a>
+          <a href="/#hire"    class="fcol-a">Post a brief</a>
+          <a href="/#compare" class="fcol-a">Compare</a>
+        </div>
+        <div>
+          <p class="fcol-h">Connect</p>
+          <a href="mailto:hello@worven.io" class="fcol-a">hello@worven.io</a>
+          <a href="#" class="fcol-a">LinkedIn</a>
+          <a href="#" class="fcol-a">Twitter / X</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bot">
+      <p class="f-copy">&copy; 2025 Worven. All rights reserved.</p>
+      <p class="f-built">Built in Kolkata by <span>Souvik Saha</span>.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════ JAVASCRIPT ═══════════ -->
+<script>
+(function(){
+'use strict';
+var $=function(s){return document.querySelector(s);};
+var $$=function(s){return document.querySelectorAll(s);};
+
+/* ── NAV ── */
+var nav=$('#nav');
+window.addEventListener('scroll',function(){
+  nav.classList.toggle('scrolled',window.scrollY>16);
+},{passive:true});
+
+/* Active link */
+var navAs=$$('.nav-a');
+var secs=$$('section[id]');
+window.addEventListener('scroll',function(){
+  var pos=window.scrollY+80,cur='';
+  secs.forEach(function(s){if(pos>=s.offsetTop)cur=s.id;});
+  navAs.forEach(function(a){
+    a.classList.toggle('active',a.getAttribute('href')==='#'+cur);
+  });
+},{passive:true});
+
+/* Smooth scroll */
+document.querySelectorAll('a[href^="#"]').forEach(function(a){
+  a.addEventListener('click',function(e){
+    var id=a.getAttribute('href').slice(1);
+    if(!id)return;
+    var el=document.getElementById(id);
+    if(!el)return;
+    e.preventDefault();
+    el.scrollIntoView({behavior:'smooth',block:'start'});
+    closeMob();
+  });
+});
+
+/* ── MOBILE NAV ── */
+var burger=$('#burger'),mob=$('#mobNav');
+function closeMob(){
+  if(!burger)return;
+  burger.classList.remove('open');
+  mob&&mob.classList.remove('open');
+  document.body.style.overflow='';
+  burger.setAttribute('aria-expanded','false');
+}
+if(burger&&mob){
+  burger.addEventListener('click',function(){
+    var open=burger.classList.toggle('open');
+    mob.classList.toggle('open',open);
+    document.body.style.overflow=open?'hidden':'';
+    burger.setAttribute('aria-expanded',String(open));
+  });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape')closeMob();
+  });
+}
+
+/* ── SCROLL REVEAL ── */
+var revs=$$('.reveal');
+if(revs.length&&'IntersectionObserver' in window){
+  var ro=new IntersectionObserver(function(en){
+    en.forEach(function(e){
+      if(e.isIntersecting){e.target.classList.add('visible');ro.unobserve(e.target);}
+    });
+  },{threshold:0.1});
+  revs.forEach(function(el){ro.observe(el);});
+}else{
+  revs.forEach(function(el){el.classList.add('visible');});
+}
+
+/* ── HERO ENTRANCE ── */
+var hb=$('.hero-body');
+if(hb){
+  hb.style.opacity='0';hb.style.transform='translateY(18px)';
+  requestAnimationFrame(function(){
+    setTimeout(function(){
+      hb.style.transition='opacity .85s ease,transform .85s ease';
+      hb.style.opacity='1';hb.style.transform='none';
+    },60);
+  });
+}
+
+/* ── SCORE BARS ── */
+var sc=$('#scoreCard');
+if(sc&&'IntersectionObserver' in window){
+  var bDone=false;
+  var bo=new IntersectionObserver(function(en){
+    if(!en[0].isIntersecting||bDone)return;
+    bDone=true;
+    sc.querySelectorAll('.sdim-fill').forEach(function(b,i){
+      setTimeout(function(){b.style.width=b.getAttribute('data-w');},i*110);
+    });
+    bo.disconnect();
+  },{threshold:0.35});
+  bo.observe(sc);
+}
+
+/* ── INCOME CALCULATOR ── */
+var rates={
+  brand:   {fiver:700,  worven:4100},
+  social:  {fiver:500,  worven:3200},
+  logo:    {fiver:600,  worven:3600},
+  motion:  {fiver:800,  worven:4400},
+  uiux:    {fiver:900,  worven:4800},
+  illustration:{fiver:550,worven:3400},
+  copy:    {fiver:400,  worven:2800}
+};
+
+function fmt(n){
+  if(n>=100000) return '&#8377;'+Math.round(n/1000)+'K';
+  if(n>=10000)  return '&#8377;'+Math.round(n/1000)+'K';
+  return '&#8377;'+n.toLocaleString('en-IN');
+}
+
+function calcUpdate(){
+  var skill=($('#skillSelect')||{}).value||'brand';
+  var hours=parseInt(($('#hoursSlider')||{}).value||20,10);
+  var r=rates[skill]||rates.brand;
+  var weeks=4.3;
+  var fAmt=Math.round(r.fiver*hours*weeks);
+  var wAmt=Math.round(r.worven*hours*weeks);
+  var diff=wAmt-fAmt;
+  var fa=$('#fiverAmount');
+  var wa=$('#worvenAmount');
+  var da=$('#diffAmount');
+  var hv=$('#hoursVal');
+  if(hv)hv.textContent=hours;
+  if(fa)fa.innerHTML=fmt(fAmt);
+  if(wa)wa.innerHTML=fmt(wAmt);
+  if(da)da.innerHTML=fmt(diff)+' more';
+}
+
+var skillSel=$('#skillSelect');
+var hourSlider=$('#hoursSlider');
+if(skillSel)skillSel.addEventListener('change',calcUpdate);
+if(hourSlider)hourSlider.addEventListener('input',calcUpdate);
+calcUpdate();
+
+/* ── FACE CARD HOVER ── */
+if(!window.matchMedia('(prefers-reduced-motion:reduce)').matches){
+  $$('.fcard').forEach(function(c){
+    c.addEventListener('mousemove',function(e){
+      var r=c.getBoundingClientRect();
+      var x=(e.clientX-r.left)/r.width-.5;
+      var y=(e.clientY-r.top)/r.height-.5;
+      c.style.transform='translateY(-5px) rotateX('+(-y*5)+'deg) rotateY('+(x*5)+'deg)';
+    });
+    c.addEventListener('mouseleave',function(){c.style.transform='';});
+  });
+}
+
+/* ── PROCESS STEP HIGHLIGHT ── */
+$$('.pstep').forEach(function(s){
+  s.addEventListener('mouseenter',function(){
+    var c=s.querySelector('.pstep-circle');
+    if(c){c.style.borderColor='var(--w-border)';c.style.background='var(--w-dim)';c.style.color='var(--w)';}
+  });
+  s.addEventListener('mouseleave',function(){
+    var c=s.querySelector('.pstep-circle');
+    if(c){c.style.borderColor='';c.style.background='';c.style.color='';}
+  });
+});
+
+/* ── APPLY FORM ── */
+var form=$('#talentForm');
+var success=$('#applySuccess');
+if(form&&success){
+  var req=form.querySelectorAll('[required]');
+  req.forEach(function(f){
+    f.addEventListener('blur',function(){
+      var ok=f.value.trim()!=='';
+      f.classList.toggle('err',!ok);
+      f.classList.toggle('ok',ok);
+    });
+    f.addEventListener('input',function(){
+      if(f.classList.contains('err')&&f.value.trim()!==''){
+        f.classList.remove('err');f.classList.add('ok');
+      }
+    });
+  });
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var valid=true;
+    req.forEach(function(f){
+      var ok=f.value.trim()!=='';
+      f.classList.toggle('err',!ok);
+      f.classList.toggle('ok',ok);
+      if(!ok)valid=false;
+    });
+    if(!valid){
+      var fe=form.querySelector('.err');
+      if(fe){fe.focus();fe.scrollIntoView({behavior:'smooth',block:'center'});}
+      return;
+    }
+    var btn=form.querySelector('[type=submit]');
+    var orig=btn.textContent;
+    btn.disabled=true;btn.textContent='Submitting\u2026';
+
+    /*
+      CONNECT TO FORMSPREE (free):
+      1. Go to formspree.io → create form → copy ID
+      2. Replace setTimeout below with:
+
+      fetch('https://formspree.io/f/YOUR_ID',{
+        method:'POST',
+        headers:{'Content-Type':'application/json','Accept':'application/json'},
+        body:JSON.stringify(Object.fromEntries(new FormData(form)))
+      })
+      .then(function(r){
+        if(!r.ok)throw new Error('fail');
+        form.style.display='none';
+        success.classList.add('show');
+        success.scrollIntoView({behavior:'smooth',block:'center'});
+      })
+      .catch(function(){
+        btn.disabled=false;btn.textContent=orig;
+        alert('Something went wrong. Email hello@worven.io directly.');
+      });
+    */
+
+    setTimeout(function(){
+      form.style.display='none';
+      success.classList.add('show');
+      success.scrollIntoView({behavior:'smooth',block:'center'});
+    },1000);
+  });
+}
+
+/* ── CONSOLE ── */
+console.info('%c Worven — talent.html ','background:#8BFFC0;color:#0C0B0F;font-weight:700;font-size:13px;padding:3px 10px;border-radius:4px;');
+console.info('%c Geography should not determine income.','color:#6B6580;font-size:11px;');
+
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,6 @@
+# Worven — robots.txt
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://worven.io/sitemap.xml

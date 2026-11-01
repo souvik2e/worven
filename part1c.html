@@ -1,0 +1,518 @@
+
+<!-- ═══════════ HIRE FORM ═══════════ -->
+<section class="section" id="hire" aria-labelledby="hire-h">
+  <div class="wrap-sm">
+
+    <div class="s-center reveal">
+      <p class="lbl" style="margin-bottom:10px;">Get Matched</p>
+      <h2 class="heading" id="hire-h">Tell us what you need.</h2>
+      <p class="sub" style="max-width:400px;margin:14px auto 0;">
+        A real human reads every brief. You will hear back within
+        24 hours with three verified matches chosen for your project.
+      </p>
+    </div>
+
+    <div class="form-panel reveal">
+      <form class="form-inner" id="hireForm" novalidate>
+
+        <div class="f-row">
+          <div class="fg">
+            <label class="fl" for="hname">Your name</label>
+            <input class="fi" type="text" id="hname" name="name"
+              placeholder="James Morrison" required autocomplete="name">
+          </div>
+          <div class="fg">
+            <label class="fl" for="hemail">Work email</label>
+            <input class="fi" type="email" id="hemail" name="email"
+              placeholder="you@company.com" required autocomplete="email">
+          </div>
+        </div>
+
+        <div class="fg">
+          <label class="fl" for="hneed">What do you need?</label>
+          <select class="fi" id="hneed" name="need" required>
+            <option value="" disabled selected>Select a category</option>
+            <option>Brand identity design</option>
+            <option>Social media design</option>
+            <option>Logo design</option>
+            <option>Motion graphics / video editing</option>
+            <option>UI/UX design</option>
+            <option>Illustration</option>
+            <option>Content writing / copywriting</option>
+            <option>Other creative work</option>
+          </select>
+        </div>
+
+        <div class="fg">
+          <label class="fl" for="hbrief">Describe your project</label>
+          <textarea class="fi" id="hbrief" name="brief" rows="4"
+            placeholder="Tell us what you are building, what you need, and what success looks like. The more specific, the better we match you."
+            required></textarea>
+        </div>
+
+        <div class="fg">
+          <label class="fl" for="hbudget">Approximate budget</label>
+          <select class="fi" id="hbudget" name="budget">
+            <option value="" disabled selected>Select a range</option>
+            <option>Under $500 (small task)</option>
+            <option>$500 &ndash; $1,500 (one-off project)</option>
+            <option>$1,500 &ndash; $5,000 (medium project)</option>
+            <option>$5,000+ (ongoing or large scope)</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn btn-mint btn-lg" style="width:100%;">
+          Submit brief &mdash; get 3 matches in 24 hours &rarr;
+        </button>
+
+        <p class="f-note">
+          No spam. No sales calls. A real human reads your brief personally.
+        </p>
+
+      </form>
+      <div class="f-success" id="hireSuccess">
+        <div class="fs-icon">&#10003;</div>
+        <div class="fs-title">Brief received.</div>
+        <div class="fs-body">
+          A real human will review your brief and send you three verified
+          matches within 24 hours. Check your inbox at the email you provided.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════ APPLY FORM ═══════════ -->
+<section class="section" id="apply" aria-labelledby="apply-h">
+  <div class="wrap-sm">
+
+    <div class="s-center reveal">
+      <p class="lbl" style="margin-bottom:10px;">Apply as Talent</p>
+      <h2 class="heading" id="apply-h">Start your application.</h2>
+      <p class="sub" style="max-width:400px;margin:14px auto 0;">
+        Takes 10 minutes. We respond within 7 days. You get paid
+        &#8377;1,500 for the test project regardless of the outcome.
+      </p>
+    </div>
+
+    <div class="form-panel reveal">
+      <form class="form-inner" id="talentForm" novalidate>
+
+        <div class="f-row">
+          <div class="fg">
+            <label class="fl" for="tname">Full name</label>
+            <input class="fi" type="text" id="tname" name="name"
+              placeholder="Your full name" required autocomplete="name">
+          </div>
+          <div class="fg">
+            <label class="fl" for="temail">Email</label>
+            <input class="fi" type="email" id="temail" name="email"
+              placeholder="your@email.com" required autocomplete="email">
+          </div>
+        </div>
+
+        <div class="f-row">
+          <div class="fg">
+            <label class="fl" for="tcity">City</label>
+            <input class="fi" type="text" id="tcity" name="city"
+              placeholder="e.g. Bhubaneswar" required>
+          </div>
+          <div class="fg">
+            <label class="fl" for="tskill">Primary skill</label>
+            <select class="fi" id="tskill" name="skill" required>
+              <option value="" disabled selected>Select your speciality</option>
+              <option>Brand identity design</option>
+              <option>Social media design</option>
+              <option>Logo design</option>
+              <option>Motion graphics / video editing</option>
+              <option>UI/UX design</option>
+              <option>Illustration</option>
+              <option>Content writing</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="fg">
+          <label class="fl" for="tportfolio">Portfolio URL</label>
+          <input class="fi" type="url" id="tportfolio" name="portfolio"
+            placeholder="https://behance.net/yourname" required>
+        </div>
+
+        <div class="f-row">
+          <div class="fg">
+            <label class="fl" for="texp">Years of experience</label>
+            <select class="fi" id="texp" name="experience" required>
+              <option value="" disabled selected>Select</option>
+              <option>Less than 1 year</option>
+              <option>1&ndash;2 years</option>
+              <option>3&ndash;5 years</option>
+              <option>5+ years</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label class="fl" for="trate">Target rate (USD / hr)</label>
+            <select class="fi" id="trate" name="rate" required>
+              <option value="" disabled selected>Select</option>
+              <option>$20&ndash;30/hr</option>
+              <option>$30&ndash;50/hr</option>
+              <option>$50&ndash;80/hr</option>
+              <option>$80+/hr</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="fg">
+          <label class="fl" for="twhy">Why do you want to join Worven?</label>
+          <textarea class="fi" id="twhy" name="why" rows="4"
+            placeholder="Tell us what drives your work and why Worven feels right. We read every word personally."
+            required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-mint btn-lg" style="width:100%;">
+          Submit application &rarr;
+        </button>
+
+        <p class="f-note">
+          We pay &#8377;1,500 for the test project &mdash; regardless of
+          the outcome. Your time is valuable.
+        </p>
+
+      </form>
+      <div class="f-success" id="talentSuccess">
+        <div class="fs-icon">&#127919;</div>
+        <div class="fs-title">Application received.</div>
+        <div class="fs-body">
+          We review every application personally. You will hear from us
+          within 7 days with next steps &mdash; including your paid
+          test project brief.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════ FINAL CTA ═══════════ -->
+<section class="final-cta" id="contact">
+  <div class="wrap">
+    <div class="final-cta-in reveal">
+
+      <p class="display">
+        Geography should not<br>determine <em>income.</em>
+      </p>
+
+      <p class="sub" style="max-width:420px;margin:18px auto 0;font-size:17px;">
+        Whether you need great creative work done, or you are a talented
+        professional ready to earn what your work is actually worth &mdash;
+        Worven was built for you.
+      </p>
+
+      <div class="cta-btns">
+        <a href="#hire"  class="btn btn-mint btn-lg">Hire verified talent &rarr;</a>
+        <a href="#apply" class="btn btn-ghost btn-lg">Apply as talent</a>
+        <a href="mailto:hello@worven.io" class="btn btn-ghost btn-lg">
+          hello@worven.io
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer class="footer">
+  <div class="wrap">
+
+    <div class="footer-top">
+      <div>
+        <div class="f-wm">
+          Worv<span style="color:var(--w)">en</span>
+        </div>
+        <p class="f-tag">The trust layer for global creative hiring.</p>
+      </div>
+      <div class="footer-cols">
+        <div>
+          <p class="fcol-h">Platform</p>
+          <a href="#how"     class="fcol-a">How it works</a>
+          <a href="#talent"  class="fcol-a">For talent</a>
+          <a href="#score"   class="fcol-a">Worven Score</a>
+          <a href="#compare" class="fcol-a">Compare</a>
+        </div>
+        <div>
+          <p class="fcol-h">Get started</p>
+          <a href="#hire"  class="fcol-a">Post a brief</a>
+          <a href="#apply" class="fcol-a">Apply as talent</a>
+          <a href="mailto:hello@worven.io" class="fcol-a">Contact us</a>
+        </div>
+        <div>
+          <p class="fcol-h">Connect</p>
+          <a href="mailto:hello@worven.io" class="fcol-a">hello@worven.io</a>
+          <a href="#" class="fcol-a">LinkedIn</a>
+          <a href="#" class="fcol-a">Twitter / X</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bot">
+      <p class="f-copy">&copy; 2025 Worven. All rights reserved.</p>
+      <p class="f-built">
+        Built in Kolkata by <span>Souvik Saha</span>.
+      </p>
+    </div>
+
+  </div>
+</footer>
+
+<!-- ═══════════ JAVASCRIPT ═══════════ -->
+<script>
+(function () {
+  'use strict';
+
+  /* ── HELPERS ── */
+  var $ = function (s) { return document.querySelector(s); };
+  var $$ = function (s) { return document.querySelectorAll(s); };
+
+  /* ── NAV SCROLL STATE ── */
+  var nav = $('#nav');
+  if (nav) {
+    window.addEventListener('scroll', function () {
+      nav.classList.toggle('scrolled', window.scrollY > 16);
+    }, { passive: true });
+  }
+
+  /* ── ACTIVE NAV LINK ── */
+  var navAs = $$('.nav-a');
+  var secs  = $$('section[id]');
+  window.addEventListener('scroll', function () {
+    var pos = window.scrollY + 80;
+    var cur = '';
+    secs.forEach(function (s) {
+      if (pos >= s.offsetTop) cur = s.id;
+    });
+    navAs.forEach(function (a) {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + cur);
+    });
+  }, { passive: true });
+
+  /* ── SMOOTH SCROLL ── */
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var id = a.getAttribute('href').slice(1);
+      if (!id) return;
+      var target = document.getElementById(id);
+      if (!target) return;
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      closeMob();
+    });
+  });
+
+  /* ── MOBILE NAV ── */
+  var burger = $('#burger');
+  var mobNav = $('#mobNav');
+
+  function closeMob() {
+    if (!burger) return;
+    burger.classList.remove('open');
+    if (mobNav) mobNav.classList.remove('open');
+    document.body.style.overflow = '';
+    burger.setAttribute('aria-expanded', 'false');
+  }
+
+  if (burger && mobNav) {
+    burger.addEventListener('click', function () {
+      var open = burger.classList.toggle('open');
+      mobNav.classList.toggle('open', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+      burger.setAttribute('aria-expanded', String(open));
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeMob();
+    });
+  }
+
+  /* ── SCROLL REVEAL ── */
+  var reveals = $$('.reveal');
+  if (reveals.length && 'IntersectionObserver' in window) {
+    var ro = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          ro.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(function (el) { ro.observe(el); });
+  } else {
+    /* Fallback for old browsers */
+    reveals.forEach(function (el) { el.classList.add('visible'); });
+  }
+
+  /* ── SCORE BAR ANIMATION ── */
+  var scoreCard = $('#scoreCard');
+  if (scoreCard && 'IntersectionObserver' in window) {
+    var barsAnimated = false;
+    var bo = new IntersectionObserver(function (entries) {
+      if (!entries[0].isIntersecting || barsAnimated) return;
+      barsAnimated = true;
+      scoreCard.querySelectorAll('.sdim-fill').forEach(function (bar, i) {
+        setTimeout(function () {
+          bar.style.width = bar.getAttribute('data-w');
+        }, i * 110);
+      });
+      bo.disconnect();
+    }, { threshold: 0.35 });
+    bo.observe(scoreCard);
+  }
+
+  /* ── FORM HANDLER ── */
+  function initForm(formId, successId) {
+    var form    = $(formId);
+    var success = $(successId);
+    if (!form || !success) return;
+
+    var required = form.querySelectorAll('[required]');
+
+    /* Live validation on blur */
+    required.forEach(function (field) {
+      field.addEventListener('blur', function () {
+        var ok = field.value.trim() !== '';
+        field.classList.toggle('err', !ok);
+        field.classList.toggle('ok',  ok);
+      });
+      field.addEventListener('input', function () {
+        if (field.classList.contains('err') && field.value.trim() !== '') {
+          field.classList.remove('err');
+          field.classList.add('ok');
+        }
+      });
+    });
+
+    /* Submit */
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var valid = true;
+
+      required.forEach(function (field) {
+        var ok = field.value.trim() !== '';
+        field.classList.toggle('err', !ok);
+        field.classList.toggle('ok',  ok);
+        if (!ok) valid = false;
+      });
+
+      if (!valid) {
+        var first = form.querySelector('.err');
+        if (first) {
+          first.focus();
+          first.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        return;
+      }
+
+      /* Disable button, show loading */
+      var btn = form.querySelector('[type=submit]');
+      var orig = btn.textContent;
+      btn.disabled    = true;
+      btn.textContent = 'Sending\u2026';
+
+      /*
+        TO CONNECT A REAL BACKEND:
+        Replace the setTimeout below with a fetch() call.
+
+        Example using Formspree (free tier available):
+        -----------------------------------------------
+        fetch('https://formspree.io/f/YOUR_FORM_ID', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(Object.fromEntries(new FormData(form)))
+        })
+        .then(function(res) {
+          if (!res.ok) throw new Error('failed');
+          form.style.display = 'none';
+          success.classList.add('show');
+        })
+        .catch(function() {
+          btn.disabled    = false;
+          btn.textContent = orig;
+          alert('Something went wrong. Please email hello@worven.io directly.');
+        });
+      */
+
+      setTimeout(function () {
+        form.style.display = 'none';
+        success.classList.add('show');
+        success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 1000);
+    });
+  }
+
+  initForm('#hireForm',   '#hireSuccess');
+  initForm('#talentForm', '#talentSuccess');
+
+  /* ── HERO ENTRANCE ANIMATION ── */
+  var heroBody = $('.hero-body');
+  if (heroBody) {
+    heroBody.style.opacity   = '0';
+    heroBody.style.transform = 'translateY(18px)';
+    requestAnimationFrame(function () {
+      setTimeout(function () {
+        heroBody.style.transition = 'opacity .85s ease, transform .85s ease';
+        heroBody.style.opacity    = '1';
+        heroBody.style.transform  = 'none';
+      }, 60);
+    });
+  }
+
+  /* ── TALENT CARD TILT ── */
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    $$('.pcard').forEach(function (card) {
+      card.style.transformStyle = 'preserve-3d';
+      card.style.willChange     = 'transform';
+
+      card.addEventListener('mousemove', function (e) {
+        var rect = card.getBoundingClientRect();
+        var x    = (e.clientX - rect.left) / rect.width  - 0.5;
+        var y    = (e.clientY - rect.top)  / rect.height - 0.5;
+        card.style.transform =
+          'translateY(-6px) rotateX(' + (-y * 7) + 'deg) rotateY(' + (x * 7) + 'deg)';
+      });
+
+      card.addEventListener('mouseleave', function () {
+        card.style.transform = '';
+      });
+    });
+  }
+
+  /* ── STEP HOVER NUMBER ── */
+  $$('.step').forEach(function (step) {
+    step.addEventListener('mouseenter', function () {
+      var num = step.querySelector('.step-num');
+      if (num) num.style.color = 'var(--w)';
+    });
+    step.addEventListener('mouseleave', function () {
+      var num = step.querySelector('.step-num');
+      if (num) num.style.color = '';
+    });
+  });
+
+  /* ── CONSOLE SIGNATURE ── */
+  console.info(
+    '%c Worven ',
+    'background:#8BFFC0;color:#0C0B0F;font-weight:700;font-size:13px;' +
+    'padding:3px 10px;border-radius:4px;letter-spacing:.05em;'
+  );
+  console.info(
+    '%c Built in Kolkata, India. Changing the world from here.',
+    'color:#6B6580;font-size:11px;'
+  );
+
+})();
+</script>
+
+</body>
+</html>

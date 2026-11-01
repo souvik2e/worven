@@ -1,0 +1,12 @@
+# Worven — Cloudflare Pages Redirects
+# Place this file in the ROOT of your GitHub repo
+
+/apply          /index.html#apply         301
+/hire           /index.html#hire          301
+/talent         /index.html#talent        301
+/score          /index.html#score         301
+/how            /index.html#how           301
+/contact        /index.html#contact       301
+
+# Catch-all — send everything to index (SPA behaviour)
+/*              /index.html               200
